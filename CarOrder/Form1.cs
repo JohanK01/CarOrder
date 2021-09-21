@@ -18,7 +18,7 @@ namespace CarOrder
             InitializeComponent();
             button1.Text = "Amount of red cars";
             button2.Text = "Cars older than 2003";
-            button3.Text = "Amount of grey cars";
+            button3.Text = "Amount of grey Volovs";
             button4.Text = "Average miles on the BMW";
             button5.Text = "The most expensive car";
             Cars = new List<Car>();
@@ -54,11 +54,6 @@ namespace CarOrder
             {
                 listBox1.Items.Add($"{Car.Make} {Car.Model} {Car.Year}");
             }
-
-
-
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -79,17 +74,25 @@ namespace CarOrder
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            //Counts all the grey volovs
+            List<Car> GVolvo = Cars.FindAll(x => x.Make == "Volvo").FindAll(y => y.Color =="Grey");
+            
+            listBox2.Items.Add($"{GVolvo.Count}");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            //Average miles on the BMW
+            double MBMW = Cars.FindAll(x => x.Make == "BMW").Average(y => y.Km);
 
+            listBox2.Items.Add($"{MBMW}");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            List<Car> MExpensive = Cars.FindAll(x => x.Price > 9999999);
 
+            listBox2.Items.Add($"{MExpensive}");
         }
     }
     public class Car
