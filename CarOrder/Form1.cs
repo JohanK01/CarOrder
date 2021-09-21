@@ -72,7 +72,9 @@ namespace CarOrder
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            //Shows a list of all cars older than 2003
+            List<Car> Age = Cars.FindAll(x => x.Year < 2003).ToList();
+            listBox2.Items.Add($"{Age.Count}");
         }
 
         private void button3_Click(object sender, EventArgs e)
