@@ -40,7 +40,22 @@ namespace CarOrder
             Cars.Add(new Car() { Id = 991, Make = "Volvo", Model = "V70", Color = "Red", Km = 3475, Price = 14512, Year = 1998 });
             Cars.Add(new Car() { Id = 801, Make = "Audi", Model = "A7", Color = "White", Km = 492, Price = 187500, Year = 2002 });
             Cars.Add(new Car() { Id = 6031, Make = "Audi", Model = "A6", Color = "Blue", Km = 553, Price = 55400, Year = 2011 });
+
+
+            //Shows a list of cars in alphabetic order
+            Cars = Cars.OrderBy(Alpha => Alpha.Make).ToList();
+
+            foreach (var Car in Cars)
+            {
+                listBox1.Items.Add($"{Car.Make} {Car.Model} {Car.Year}");
+            }
+
+
+
+
+
         }
+
     }
     public class Car
     {
