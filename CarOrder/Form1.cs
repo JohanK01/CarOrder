@@ -16,6 +16,11 @@ namespace CarOrder
         public Form1()
         {
             InitializeComponent();
+            button1.Text = "Amount of red cars";
+            button2.Text = "Cars older than 2003";
+            button3.Text = "Amount of grey cars";
+            button4.Text = "Average miles on the BMW";
+            button5.Text = "The most expensive car";
             Cars = new List<Car>();
 
             Cars.Add(new Car() { Id = 1, Make = "Volvo", Model = "V70", Color = "White", Km = 1292, Price = 3465, Year = 1998 });
@@ -43,7 +48,7 @@ namespace CarOrder
 
 
             //Shows a list of cars in alphabetic order
-            Cars = Cars.OrderBy(Alpha => Alpha.Make).ToList();
+            List<Car> Aplha = Cars.OrderBy(Alpha => Alpha.Make).ToList();
 
             foreach (var Car in Cars)
             {
@@ -56,6 +61,34 @@ namespace CarOrder
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Shows a list of all red cars
+            List<Car> Color = Cars.FindAll(x => x.Color == "Red").ToList();
+
+            listBox2.Items.Add($"{Color.Count}");
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public class Car
     {
