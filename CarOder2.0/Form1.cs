@@ -46,22 +46,37 @@ namespace CarOder2._0
             {
                 listBox1.Items.Add(c);
             }
+            //Combo box
+            comboBox1.Text = "Välj en färg!";
+            foreach (string c in Cars.Select(x => x.Color).Distinct())
+            {
+                comboBox1.Items.Add(c);
+            }
 
         }
-        
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Will be able to click an item in the listbox
             ListBox listofCars = sender as ListBox;
             Car selectedCar = listofCars.SelectedItem as Car;
 
-            //listBox2.Items.Add($"Color {selectedCar.Color} \n" +
-            //    $"Km {selectedCar.Km} ");
-            
             label1.Text = "Color: " + $"{selectedCar.Color}";
             label2.Text = "Km: " + $"{selectedCar.Km}";
-            label3.Text = "Price: " + $"{selectedCar.Price}";
+            label3.Text = "Price: " + $"{selectedCar.Price} kr";
             label4.Text = "Year: " + $"{selectedCar.Year}";
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string ComboColors = (sender as ComboBox).SelectedItem as string;
+            listBox2.Items.Clear();
+            foreach (var cc in Cars.FindAll(x => x.Color == ComboColors))
+            {
+               listBox2.Items.Add(cc);
+            }
+           
+            
         }
     }
 }
