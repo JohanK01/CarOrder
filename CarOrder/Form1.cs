@@ -61,7 +61,7 @@ namespace CarOrder
             //Shows a list of all red cars
             List<Car> Color = Cars.FindAll(x => x.Color == "Red").ToList();
 
-            listBox2.Items.Add($"{Color.Count}");
+            listBox2.Items.Add($"There are {Color.Count} red cars in stock");
 
         }
 
@@ -69,30 +69,32 @@ namespace CarOrder
         {
             //Shows a list of all cars older than 2003
             List<Car> Age = Cars.FindAll(x => x.Year < 2003).ToList();
-            listBox2.Items.Add($"{Age.Count}");
+            listBox2.Items.Add($"There are {Age.Count} cars that are older than 2003");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //Counts all the grey volovs
-            List<Car> GVolvo = Cars.FindAll(x => x.Make == "Volvo").FindAll(y => y.Color =="Grey");
-            
-            listBox2.Items.Add($"{GVolvo.Count}");
+            //Counts all the grey volvos
+            List<Car> GVolvo = Cars.FindAll(x => x.Make == "Volvo").FindAll(y => y.Color == "Grey");
+
+            listBox2.Items.Add($"There are {GVolvo.Count} grey volvos in stock");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //Average miles on the BMW
+            //Average Km on the BMW
             double MBMW = Cars.FindAll(x => x.Make == "BMW").Average(y => y.Km);
 
-            listBox2.Items.Add($"{MBMW}");
+            listBox2.Items.Add($"The average km on the make BMW is {MBMW}km");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            List<Car> MExpensive = Cars.FindAll(x => x.Price > 9999999);
+            //Finds the most expenive car
+            List<Car> Mexpensive = Cars.OrderByDescending(x => x.Price).ToList();
 
-            listBox2.Items.Add($"{MExpensive}");
+            ListBox2.Items.Add($"The most expenise car is {Make[0]}");
+            
         }
     }
     public class Car
