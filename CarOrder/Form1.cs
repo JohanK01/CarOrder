@@ -93,7 +93,7 @@ namespace CarOrder
             //Finds the most expenive car
             List<Car> Mexpensive = Cars.OrderByDescending(x => x.Price).ToList();
 
-            ListBox2.Items.Add($"The most expenise car is {Make[0]}");
+           // ListBox2.Items.Add($"The most expenise car is {Make[0]}");
             
         }
     }

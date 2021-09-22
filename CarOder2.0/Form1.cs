@@ -69,14 +69,42 @@ namespace CarOder2._0
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Finds cars with the selected colors in combobox
             string ComboColors = (sender as ComboBox).SelectedItem as string;
             listBox2.Items.Clear();
             foreach (var cc in Cars.FindAll(x => x.Color == ComboColors))
             {
-               listBox2.Items.Add(cc);
+                listBox2.Items.Add(cc);
             }
-           
+
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            listBox3.Items.Clear();
+            Button btn = sender as Button;
             
+            int FindID = int.Parse(IDBox.Text);
+            foreach (var Ic in Cars.FindAll(x => x.Id == FindID))
+            {
+                listBox3.Items.Add(Ic);
+            }
+            
+        }
+
+        private void IDBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PriceBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KmBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
