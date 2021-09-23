@@ -325,7 +325,7 @@ namespace CarOder2._0
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 360);
+            this.ClientSize = new System.Drawing.Size(764, 445);
             this.Controls.Add(this.InfoModel);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);

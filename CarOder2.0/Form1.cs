@@ -60,14 +60,14 @@ namespace CarOder2._0
             //Will be able to click an item in the listbox
             ListBox listofCars = sender as ListBox;
             Car selectedCar = listofCars.SelectedItem as Car;
-
-            InfoId.Text = $"{selectedCar.Id}"; 
+            //Shows the info of a car
+            InfoId.Text = $"{selectedCar.Id}";
             InfoMake.Text = $"{selectedCar.Make}";
             InfoModel.Text = $"{selectedCar.Model}";
             InfoColor.Text = $"{selectedCar.Color}";
             InfoKm.Text = $"{selectedCar.Km}";
             InfoPrice.Text = $"{selectedCar.Price} kr";
-            InfoYear.Text =  $"{selectedCar.Year}";
+            InfoYear.Text = $"{selectedCar.Year}";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,22 +101,26 @@ namespace CarOder2._0
             int FindID = int.Parse(IDBox.Text);
             int PriceChange = int.Parse(PriceBox.Text);
             int KmChange = int.Parse(KmBox.Text);
+
             //Finds the car with the id and goes to the price and changes it
             Cars.Find(x => x.Id == FindID).Price = PriceChange;
             Cars.Find(x => x.Id == FindID).Km = KmChange;
 
-            PriceBox.Clear();
-            KmBox.Clear();
 
         }
         private void BtnRemove_Click(object sender, EventArgs e)
         {
-            //Finds the car with the id
-            int FindID = int.Parse(IDBox.Text);
-
-            Cars.Find(x => x.Id == FindID);
-           
+            //Finds the car from the ID put in
+            int Position = Cars.FindIndex(x => x.Id == int.Parse(IDBox.Text));
+            //Removes the car but doesnt refresh the list
+            Cars.RemoveAt(Position);
+            listBox1.Items.Clear();
+            foreach (Car c in Cars.OrderBy(x => x.Make))
+            {
+                listBox1.Items.Add(c);
+            }
         }
+
 
         private void IDBox_TextChanged(object sender, EventArgs e)
         {
