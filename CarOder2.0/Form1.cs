@@ -61,10 +61,13 @@ namespace CarOder2._0
             ListBox listofCars = sender as ListBox;
             Car selectedCar = listofCars.SelectedItem as Car;
 
-            label1.Text = "Color: " + $"{selectedCar.Color}";
-            label2.Text = "Km: " + $"{selectedCar.Km}";
-            label3.Text = "Price: " + $"{selectedCar.Price} kr";
-            label4.Text = "Year: " + $"{selectedCar.Year}";
+            InfoId.Text = $"{selectedCar.Id}"; 
+            InfoMake.Text = $"{selectedCar.Make}";
+            InfoModel.Text = $"{selectedCar.Model}";
+            InfoColor.Text = $"{selectedCar.Color}";
+            InfoKm.Text = $"{selectedCar.Km}";
+            InfoPrice.Text = $"{selectedCar.Price} kr";
+            InfoYear.Text =  $"{selectedCar.Year}";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,9 +84,9 @@ namespace CarOder2._0
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            listBox3.Items.Clear();
+
             Button btn = sender as Button;
-            
+            listBox3.Items.Clear();
             int FindID = int.Parse(IDBox.Text);
             foreach (var Ic in Cars.FindAll(x => x.Id == FindID))
             {
@@ -94,17 +97,27 @@ namespace CarOder2._0
         }
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            //Finds the car with the Id
             int FindID = int.Parse(IDBox.Text);
             int PriceChange = int.Parse(PriceBox.Text);
             int KmChange = int.Parse(KmBox.Text);
-
+            //Finds the car with the id and goes to the price and changes it
             Cars.Find(x => x.Id == FindID).Price = PriceChange;
             Cars.Find(x => x.Id == FindID).Km = KmChange;
-            
+
             PriceBox.Clear();
             KmBox.Clear();
+
+        }
+        private void BtnRemove_Click(object sender, EventArgs e)
+        {
+            //Finds the car with the id
+            int FindID = int.Parse(IDBox.Text);
+
+            Cars.Find(x => x.Id == FindID);
            
         }
+
         private void IDBox_TextChanged(object sender, EventArgs e)
         {
 
