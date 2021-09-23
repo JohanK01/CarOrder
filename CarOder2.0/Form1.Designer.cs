@@ -59,6 +59,7 @@ namespace CarOder2._0
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.InfoModel = new System.Windows.Forms.TextBox();
+            this.BtnAddNew = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -321,11 +322,22 @@ namespace CarOder2._0
             this.InfoModel.Size = new System.Drawing.Size(100, 22);
             this.InfoModel.TabIndex = 30;
             // 
+            // BtnAddNew
+            // 
+            this.BtnAddNew.Location = new System.Drawing.Point(265, 260);
+            this.BtnAddNew.Name = "BtnAddNew";
+            this.BtnAddNew.Size = new System.Drawing.Size(107, 37);
+            this.BtnAddNew.TabIndex = 31;
+            this.BtnAddNew.Text = "Add new car";
+            this.BtnAddNew.UseVisualStyleBackColor = true;
+            this.BtnAddNew.Click += new System.EventHandler(this.BtnAddNew_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 445);
+            this.Controls.Add(this.BtnAddNew);
             this.Controls.Add(this.InfoModel);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -395,6 +407,7 @@ namespace CarOder2._0
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox InfoModel;
+        private System.Windows.Forms.Button BtnAddNew;
     }
 }
 
