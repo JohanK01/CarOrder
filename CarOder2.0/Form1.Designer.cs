@@ -117,7 +117,7 @@ namespace CarOder2._0
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(387, 252);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 21);
+            this.label5.Size = new System.Drawing.Size(65, 17);
             this.label5.TabIndex = 8;
             this.label5.Text = "Edit Cars";
             // 
@@ -190,6 +190,7 @@ namespace CarOder2._0
             this.SaveBtn.TabIndex = 16;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // listBox3
             // 

@@ -17,7 +17,7 @@ namespace CarOder2._0
         public int Year { get; set; }
         public override string ToString()
         {
-            return $"{Make} {Model}";
+            return $"{Id} {Make} {Model}";
         }
     }
 

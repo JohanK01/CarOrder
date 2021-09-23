@@ -88,10 +88,23 @@ namespace CarOder2._0
             foreach (var Ic in Cars.FindAll(x => x.Id == FindID))
             {
                 listBox3.Items.Add(Ic);
-            }
-            
-        }
 
+            }
+
+        }
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            int FindID = int.Parse(IDBox.Text);
+            int PriceChange = int.Parse(PriceBox.Text);
+            int KmChange = int.Parse(KmBox.Text);
+
+            Cars.Find(x => x.Id == FindID).Price = PriceChange;
+            Cars.Find(x => x.Id == FindID).Km = KmChange;
+            
+            PriceBox.Clear();
+            KmBox.Clear();
+           
+        }
         private void IDBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -106,5 +119,7 @@ namespace CarOder2._0
         {
 
         }
+
+
     }
 }
